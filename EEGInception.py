@@ -2,7 +2,7 @@ import torch
 import numpy as np
 import torch.nn as nn
 from torch.nn import functional as F
-from alignment_techniques import LatentAlignment2d, AdaptiveBatchNorm2d, EuclideanAlignment
+from AlignmentTechniques import LatentAlignment2d, AdaptiveBatchNorm2d, EuclideanAlignment
 
 
 class EEGInception(nn.Module):

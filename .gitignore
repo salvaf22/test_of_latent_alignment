@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# Ambienti virtuali
+.venv/
+env/
+venv/
+.conda/
+
+# File di sistema
+.DS_Store

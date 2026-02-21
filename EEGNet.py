@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
-from alignment_techniques import LatentAlignment2d, AdaptiveBatchNorm2d, EuclideanAlignment
+from AlignmentTechniques import LatentAlignment2d, AdaptiveBatchNorm2d, EuclideanAlignment
 
 
 def max_norm_(module, c=4., return_module=False):
