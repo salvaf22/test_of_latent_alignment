@@ -10,3 +10,5 @@ venv/
 
 # File di sistema
 .DS_Store
+
+PhysioNet Sleep/
