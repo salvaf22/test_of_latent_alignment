@@ -101,7 +101,8 @@ class DeepSleep(nn.Module):
         # Spatial
         x = self.conv1(x)  # (batch * sbj, spatial, 1, time)
         if self.alignment == 'latent':
-            x = self.latent_align1(x, sbj_trials, growing_context=growing_context)
+            # x = self.latent_align1(x, sbj_trials, growing_context=growing_context) errore la variabile growing_context non è definita da nessuna parte
+            x = self.latent_align1(x, sbj_trials)
         elif self.alignment == 'adaptive':
             x = self.abn1(x, sbj_trials)
         else:
