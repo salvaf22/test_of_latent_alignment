@@ -1,0 +1,54 @@
+import numpy as np
+from sklearn.metrics import confusion_matrix, classification_report, cohen_kappa_score
+
+def calculate_advanced_metrics(y_true, y_pred, class_names=None):
+    """
+    Calculates and prints a comprehensive report of advanced clinical metrics.
+    Supports both binary and multi-class classification.
+    """
+    print("\n" + "="*55)
+    print("ADVANCED CLINICAL METRICS REPORT")
+    print("="*55)
+
+    # 1. Confusion Matrix
+    cm = confusion_matrix(y_true, y_pred)
+    print("\nCONFUSION MATRIX:")
+    print(cm)
+    print("(Rows: Actual Classes | Columns: Predicted Classes)")
+
+    # 2. Cohen's Kappa
+    kappa = cohen_kappa_score(y_true, y_pred)
+    print(f"\nCOHEN'S KAPPA: {kappa:.4f} ", end="")
+    if kappa > 0.8: print("(Excellent Agreement)")
+    elif kappa > 0.6: print("(Good Agreement)")
+    elif kappa > 0.4: print("(Moderate Agreement)")
+    elif kappa > 0.2: print("(Fair Agreement)")
+    else: print("(Slight/Poor Agreement)")
+
+    # 3. Sensitivity and Specificity
+    if len(np.unique(y_true)) == 2:
+        # Binary Task Logic (e.g., Epilepsy: 0=Background, 1=Seizure)
+        tn, fp, fn, tp = cm.ravel()
+        specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
+        sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0
+        
+        print(f"\nSENSITIVITY (Recall Class 1): {sensitivity*100:.2f}%")
+        print(f"   (Ability to correctly identify target events)")
+        print(f"\nSPECIFICITY (Recall Class 0): {specificity*100:.2f}%")
+        print(f"   (Ability to ignore background noise / avoid false alarms)")
+    else:
+        # Multi-Class Task Logic (e.g., 5-stage DeepSleep)
+        specificities = []
+        for i in range(len(np.unique(y_true))):
+            tn = np.sum(np.delete(np.delete(cm, i, axis=0), i, axis=1))
+            fp = np.sum(np.delete(cm[:, i], i))
+            specificities.append(tn / (tn + fp) if (tn + fp) > 0 else 0)
+        print(f"\nMACRO-AVERAGED SPECIFICITY: {np.mean(specificities)*100:.2f}%")
+
+    # 4. Detailed Report (Precision, Recall, F1)
+    print("\nDETAILED REPORT (Scikit-Learn):")
+    if class_names:
+        print(classification_report(y_true, y_pred, target_names=class_names, zero_division=0))
+    else:
+        print(classification_report(y_true, y_pred, zero_division=0))
+    print("="*55)
