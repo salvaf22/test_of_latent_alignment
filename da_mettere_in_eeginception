@@ -1,0 +1,117 @@
+ Using device: cuda
+
+=== Starting LOSO (Leave-One-Subject-Out) Validation (LAZY MODE) ===
+
+-> Training for Test Subject: 1
+   Epoch [5/10], Loss: 0.2103
+   Epoch [10/10], Loss: 0.1586
+-> Finished Test Subject 1 | Balanced Acc: 78.93% | Time: 143.7s
+
+-> Training for Test Subject: 2
+   Epoch [5/10], Loss: 0.2874
+   Epoch [10/10], Loss: 0.2427
+-> Finished Test Subject 2 | Balanced Acc: 95.94% | Time: 143.2s
+
+-> Training for Test Subject: 3
+   Epoch [5/10], Loss: 0.2727
+   Epoch [10/10], Loss: 0.2232
+-> Finished Test Subject 3 | Balanced Acc: 89.78% | Time: 143.9s
+
+-> Training for Test Subject: 4
+   Epoch [5/10], Loss: 0.2360
+   Epoch [10/10], Loss: 0.1953
+-> Finished Test Subject 4 | Balanced Acc: 69.03% | Time: 143.1s
+
+-> Training for Test Subject: 5
+   Epoch [5/10], Loss: 0.2109
+   Epoch [10/10], Loss: 0.1761
+-> Finished Test Subject 5 | Balanced Acc: 71.63% | Time: 144.9s
+
+========================================
+FINAL LOSO RESULTS (Latent Alignment)
+Mean Balanced Accuracy: 81.06% ± 10.35%
+========================================
+
+=======================================================
+ADVANCED CLINICAL METRICS REPORT
+=======================================================
+
+COHEN'S KAPPA: 0.5592 (Moderate Agreement)
+
+SENSITIVITY (Recall Class 1): 73.06%
+   (Ability to correctly identify target events)
+
+SPECIFICITY (Recall Class 0): 89.06%
+   (Ability to ignore background noise / avoid false alarms)
+
+DETAILED REPORT (Scikit-Learn):
+              precision    recall  f1-score   support
+
+  Non-Target       0.94      0.89      0.92     34500
+      Target       0.57      0.73      0.64      6900
+
+    accuracy                           0.86     41400
+   macro avg       0.76      0.81      0.78     41400
+weighted avg       0.88      0.86      0.87     41400
+
+=======================================================
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+ Using device: cuda
+
+=== Starting LOSO (Leave-One-Subject-Out) Validation (BASELINE LAZY MODE) ===
+
+-> Training for Test Subject: 1
+   Epoch [5/10], Loss: 0.2157
+   Epoch [10/10], Loss: 0.1776
+-> Finished Test Subject 1 | Balanced Acc: 74.61% | Time: 99.4s
+
+-> Training for Test Subject: 2
+   Epoch [5/10], Loss: 0.3113
+   Epoch [10/10], Loss: 0.2638
+-> Finished Test Subject 2 | Balanced Acc: 94.42% | Time: 98.9s
+
+-> Training for Test Subject: 3
+   Epoch [5/10], Loss: 0.2836
+   Epoch [10/10], Loss: 0.2380
+-> Finished Test Subject 3 | Balanced Acc: 87.45% | Time: 99.3s
+
+-> Training for Test Subject: 4
+   Epoch [5/10], Loss: 0.2548
+   Epoch [10/10], Loss: 0.2181
+-> Finished Test Subject 4 | Balanced Acc: 57.46% | Time: 99.1s
+
+-> Training for Test Subject: 5
+   Epoch [5/10], Loss: 0.2158
+   Epoch [10/10], Loss: 0.1808
+-> Finished Test Subject 5 | Balanced Acc: 70.88% | Time: 99.5s
+
+========================================
+FINAL LOSO RESULTS (Baseline)
+Mean Balanced Accuracy: 76.96% ± 12.94%
+========================================
+
+=======================================================
+ADVANCED CLINICAL METRICS REPORT
+=======================================================
+
+COHEN'S KAPPA: 0.4983 (Moderate Agreement)
+
+SENSITIVITY (Recall Class 1): 65.03%
+   (Ability to correctly identify target events)
+
+SPECIFICITY (Recall Class 0): 88.90%
+   (Ability to ignore background noise / avoid false alarms)
+
+DETAILED REPORT (Scikit-Learn):
+              precision    recall  f1-score   support
+
+  Non-Target       0.93      0.89      0.91     34500
+      Target       0.54      0.65      0.59      6900
+
+    accuracy                           0.85     41400
+   macro avg       0.73      0.77      0.75     41400
+weighted avg       0.86      0.85      0.85     41400
+
+=======================================================
