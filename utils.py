@@ -8,9 +8,6 @@ def calculate_advanced_metrics(y_true, y_pred, class_names=None):
     Calculates and prints a comprehensive report of advanced clinical metrics.
     Supports both binary and multi-class classification.
     """
-    print("\n" + "="*55)
-    print("ADVANCED CLINICAL METRICS REPORT")
-    print("="*55)
 
     cm = confusion_matrix(y_true, y_pred)
 
