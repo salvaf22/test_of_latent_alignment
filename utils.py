@@ -39,7 +39,7 @@ def calculate_advanced_metrics(y_true, y_pred, class_names=None):
             specificities.append(tn / (tn + fp) if (tn + fp) > 0 else 0)
         print(f"\nMACRO-AVERAGED SPECIFICITY: {np.mean(specificities)*100:.2f}%")
 
-    print("\nDETAILED REPORT (Scikit-Learn):")
+    print("\nDETAILED REPORT:")
     if class_names:
         print(classification_report(y_true, y_pred, target_names=class_names, zero_division=0))
     else:
