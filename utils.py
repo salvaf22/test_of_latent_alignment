@@ -11,6 +11,7 @@ def calculate_advanced_metrics(y_true, y_pred, class_names=None):
 
     cm = confusion_matrix(y_true, y_pred)
 
+    # qualitative evaluation of kappa
     kappa = cohen_kappa_score(y_true, y_pred)
     print(f"\nCOHEN'S KAPPA: {kappa:.4f} ", end="")
     if kappa > 0.8: print("(Excellent Agreement)")
@@ -19,6 +20,7 @@ def calculate_advanced_metrics(y_true, y_pred, class_names=None):
     elif kappa > 0.2: print("(Fair Agreement)")
     else: print("(Slight/Poor Agreement)")
 
+    # metriche binarie vs multiclass
     if len(np.unique(y_true)) == 2:
         tn, fp, fn, tp = cm.ravel()
         specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
@@ -45,7 +47,7 @@ def calculate_advanced_metrics(y_true, y_pred, class_names=None):
 
 def plot_confusion_matrix(y_true, y_pred, class_names, title="Confusion Matrix"):
     """
-    Generates a colored Heatmap ready for publication.
+    Generates a colored Heatmap
     """
     cm = confusion_matrix(y_true, y_pred)
     
